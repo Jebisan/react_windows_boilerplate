@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import {Platform, View, Text, Button } from 'react-native';
-import Person from './Person.js';
-import axios from 'axios';
 import { connect } from 'react-redux';
 
 
-class Dashboard extends Component {
+class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +16,7 @@ class Dashboard extends Component {
   render() {
     return (
       <View>
-        <Text>Hey from Dashboard!!</Text>
+    <Text>Hello from Settings!</Text>
       </View>
     );
   }
@@ -29,4 +27,4 @@ const mapStateToProps = (state) => {
   return { friends }
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Settings);

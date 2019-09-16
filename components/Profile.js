@@ -5,7 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 
 
-class Dashboard extends Component {
+class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,14 @@ class Dashboard extends Component {
   render() {
     return (
       <View>
-        <Text>Hey from Dashboard!!</Text>
+        {
+              this.props.friends.possible.map((obj) =>
+                <Person
+                  key={obj.id}
+                  name={obj.name}
+                  />
+              )
+        }
       </View>
     );
   }
@@ -29,4 +36,4 @@ const mapStateToProps = (state) => {
   return { friends }
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Profile);

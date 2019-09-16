@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import {Platform, View, Text, Button } from 'react-native';
+import {Platform, View, Text, Button, Image } from 'react-native';
 import Person from './Person.js';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
 
-class Dashboard extends Component {
+class Pictures extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewProfile: false
     };
-  }
-  componentDidMount(){
   }
 
   render() {
     return (
       <View>
-        <Text>Hey from Dashboard!!</Text>
+                 <Image
+          style={{width: 50, height: 50}}
+          source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
+        />
       </View>
     );
   }
@@ -29,4 +29,4 @@ const mapStateToProps = (state) => {
   return { friends }
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Pictures);

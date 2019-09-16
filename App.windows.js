@@ -5,23 +5,30 @@
  */
 
 import React, { Component } from 'react';
-import {Platform, StyleSheet, Text, View } from 'react-native'; 
+import {Platform, StyleSheet, Text, View, Button } from 'react-native'; 
 import Dashboard from './components/Dashboard';
+import Profile from './components/Profile';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import friendReducer from './reducer.js';
+import CustomNavigation from './components/CustomNavigation'
 
-const instructions =
-  'Press Ctrl+R to reload,\n' +
-  'Shift+F10 or shake for dev menu';
+const store = createStore(friendReducer);
 
 export default class App extends Component<{}> {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
   render() {
     return (
+      <Provider store={ store } >
       <View style={styles.container}>
-        <Text style = {styles.welcome}>Hello from App.windows.js!</Text>
-        <Dashboard/>
+         <CustomNavigation/>
       </View>
+      </Provider>
     );
   }
 }
