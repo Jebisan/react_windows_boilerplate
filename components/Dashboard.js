@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import {Platform, View, Text, Button } from 'react-native';
 import Person from './Person.js';
 import axios from 'axios';
 
@@ -7,36 +7,30 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: ['1','2', '3' ]
+      data: []
     };
   }
-
-  
-
   componentDidMount(){
       this.setState(previousState => (
-        { data: ['4','5'] }
+        { data: [		
+          { "id": "01", "name": "Adam" },
+          { "id": "02", "name": "Bob" },
+          { "id": "03", "name": "Carl" },
+          { "id": "04", "name": "Dan" },
+          { "id": "05", "name": "Eric" },
+          { "id": "06", "name": "Frank" }
+        ] }
       ))
-
   }
-
-
-    getState () {
-      console.log(this.state.data)
-    }
-
-
 
   render() {
     return (
       <View>
-        <Text> Welcome to the Dashboard page! </Text>
-        <Button title = 'TRYK HER!' onPress={this.getState} />
         {
               this.state.data.map((obj) =>
                 <Person
-                  id={obj.id}
-                  name={obj.title}
+                  key={obj.id}
+                  name={obj.name}
                   />
               )
             }

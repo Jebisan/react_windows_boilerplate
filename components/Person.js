@@ -11,8 +11,7 @@ class Person extends Component {
   render() {
     return (
       <View>
-         <Text> hej </Text>
-        <Text> {this.props.name} </Text>
+        <Text>{this.props.name} </Text>
       </View>
     );
   }

@@ -5,12 +5,11 @@
  */
 
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import {Platform, StyleSheet, Text, View } from 'react-native'; 
+import Dashboard from './components/Dashboard';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import friendReducer from './reducer.js';
 
 const instructions =
   'Press Ctrl+R to reload,\n' +
@@ -20,15 +19,8 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.windows.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <Text style = {styles.welcome}>Hello from App.windows.js!</Text>
+        <Dashboard/>
       </View>
     );
   }
